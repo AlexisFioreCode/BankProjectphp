@@ -1,3 +1,3 @@
 # Bankproject
 
-08/04/2021 Project in JS/HTML/CSS with some AJAX for now .
+Working again on Bankproject this time  Done with PHP  , working with includes , $_GET and urls, $_POST and forms, and a function with an array in it to show the cards
