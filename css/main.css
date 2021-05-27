@@ -120,7 +120,6 @@ textarea {
     margin-left: 1vw;
   }
   footer {
-    position: absolute;
     bottom: 0;
     width: 100%;
   }
@@ -141,6 +140,14 @@ textarea {
     text-align: center;
     font-size: 2rem;
   }
+
+
+
+ @media screen and (min-width:768px) {
+   footer {
+     position: absolute;
+   }
+ } 
 /* ==========================================================================
    Helper classes
    ========================================================================== */
