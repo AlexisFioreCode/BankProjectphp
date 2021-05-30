@@ -10,6 +10,7 @@
   require "model/accountModel.php";
   $accounts = getUserAccount($db, $_SESSION["user"]["id"]);
   ?>
+  <h2 class="mb-4">Vos comptes</h2>
 <a href="logout.php" class="btn btn-dark text-white">Déconnexion</a>
 <div class="row">
     <!-- On parcours le tableau de compte à l'aide d'une foreach à syntaxe simplifiée -->

@@ -1,29 +1,23 @@
 <?php 
  include "layout/nav.php";
- include "layout/header.php"; ?>
-  <main class="my-5"> 
-    <section class="container">
-    <form action="formulaire.php" method="post">
-        <label for="prenom">Votre prénom</label>
-        <input type="text" name="prenom" />
-        <label for="nom">Votre nom</label>
-        <input type="text" name="nom" />
-        <label for="number">Téléphone</label>
-        <input type="number" name="phone" />
-        <label for="email">Votre email</label>
-        <input type="email" name="mail" />
-        
-        <input type="submit" value="Valider" />
+ include "layout/header.php";
+ ?> 
+<h2 class="mb-4">Créer un nouveau compte</h2>
+  
+<form action="formulaire_post.php" method="post">
+  <div class="mb-3">
+    <select class="form-select" for="account_type" name="account_type">
+      <option selected value="Compte courant">Compte courant</option>
+      <option value="Livret A">Livret A</option>
+      <option value="PEL">PEL</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="amount" class="form-label">Montant du compte</label>
+    <input type="number" class="form-control" name="amount">
 
-        <h5 class="card-header"><?php if($_POST) { echo $_POST['prenom'];}?></h5>
-            <div class="card-body">
-              <h5 class="card-title"><?php if($_POST) { echo $_POST['nom'];}?></h5>
-              <p class="card-text"><?php if($_POST) { echo $_POST['phone'];}?></p>
-              <p class="card-text"><?php if($_POST) { echo $_POST['mail'];}?></p>
-            </div>
-          </div>    
-
-    </form>
-    </section>
-  </main> 
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Valider</button>
+</form>
   <?php include "layout/footer.php"; ?>
