@@ -9,6 +9,13 @@ function getUserAccount(PDO $db, int $userId) {
     return $result;
 }
 
-
+function getOneAccount(PDO $db, int $accountId) {
+    $query = $db->prepare("SELECT * FROM accounts WHERE id =:accountId  ");
+    $query->execute([
+        "accountId" => $accountId
+    ]);
+    $result = $query->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
 
 ?>

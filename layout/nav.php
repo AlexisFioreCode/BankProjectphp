@@ -15,15 +15,6 @@
         <li class="nav-item">
           <a class="nav-link text-white" href="formulaire.php">Formulaire</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Opérations
-          </a>
-          <ul class="dropdown-menu firstColor" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item text-white" href="retrait.php">Retrait</a></li>
-            <li><a class="dropdown-item text-white" href="dépot.php">Dépot</a></li>
-          </ul>
-        </li>
       </ul>
     </div>
   </div>
