@@ -45,9 +45,9 @@ CREATE TABLE Operation(
 ENGINE=InnoDB;
 
 INSERT INTO Users (firstname, lastname, email, password, adress, city, postal_code) VALUES
-('Bleh', 'Michel', 'michelbleh@hotmail.fr' , "salutcpasmoi" ,'8 rue de la poutre', 'Paris', 75000),
-('Jean', 'Michel', 'micheljean@gmail.com', 'salutcmoi' ,'8 rue de la poutrelle', 'Lille', 59000),
-( 'Toto', 'Coca', 'Totocmoi@gmail.com', 'jenpeuxplus' ,'2 route des canards', 'Pracjzkpoefjz', 64578);
+('Bleh', 'Michel', 'michelbleh@hotmail.fr' , "password1" ,'8 rue de la poutre', 'Paris', 75000),
+('Jean', 'Michel', 'micheljean@gmail.com', 'password2' ,'8 rue de la poutrelle', 'Lille', 59000),
+( 'Toto', 'Coca', 'Totocmoi@gmail.com', 'password3' ,'2 route des canards', 'Pracjzkpoefjz', 64578);
 
 INSERT INTO Accounts (account_type, account_number, amount, opening_date, user_id) VALUES
 ('Compte courant', 'N:8973225 fr 2', 2548, NOW(), 1),
