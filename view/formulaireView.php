@@ -3,7 +3,8 @@
  include "layout/header.php";
  ?> 
 <h2 class="mb-4">Créer un nouveau compte</h2>
-  
+<?php echo $error; ?>
+<?php echo $success; ?>  
 <form action="formulaire.php" method="post">
   <div class="mb-3">
     <select class="form-select" for="account_type" name="account_type">

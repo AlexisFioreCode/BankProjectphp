@@ -1,25 +1,30 @@
 <?php
 
 require "model/connexion.php";
-if(!empty($_POST["amount"]) > 0 ):
-    $query = $db->prepare("INSERT INTO operation(operation_type, amount, registered, label, account_id) VALUES(dépot, :amount, NOW(), :label, :account_id");
-    $result = $query->execute([
-    "amount" => $_POST["amount"],
-    "label" => $_POST["label"],
-    "account_id" => $_GET["index"]
-        ]);
-    $sql =  $db->query("UPDATE Accounts SET amount = SUM(:amount) WHERE accounts_id = :account_id");    
-    elseif(!empty($_POST["amount"]) < 0 ) : 
-        $query = $db->prepare("INSERT INTO operation(operation_type, amount, registered, label, account_id) VALUES(retrait, :amount, NOW(), :label, :account_id");
-        $result = $query->execute([
-        "amount" => $_POST["amount"],
-        "label" => $_POST["label"],
-        "account_id" => $_GET["index"]
-        ]); 
-    $sql =  $db->query("UPDATE Accounts SET amount = SUM(:amount) WHERE accounts_id = :account_id");  
-    else : 
-        $error = "Veuillez fixer un montant supérieur ou inférieur a 0";          
-    endif;
+require "model/operationModel.php";
+require "model/accountModel.php";
+
+$error = null;
+$success = null;
+$account = getOneAccount($db, $_GET["index"]);
+$amount = $account["amount"];
+if (!empty($_POST)) {
+    if(!empty($_POST["amount"]) > 0 ){
+        addDepot($db);
+        $total = $amount + $_POST["amount"];
+        updateAccount($db, $total, $_GET["index"]);
+        }           
+        elseif(!empty($_POST["amount"]) < 0 ) {
+            addRetrait($db); 
+            $total = $amount + $_POST["amount"];
+            updateAccount($db, $total, $account["index"]);
+        }           
+        if(!empty($_POST["amount"] === 0 )) {
+            $error = "Veuillez fixer un montant supérieur ou inférieur a 0";  
+        }   
+}
+           
+
     require "view/operationView.php";
  ?>
  

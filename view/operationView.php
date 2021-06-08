@@ -1,9 +1,15 @@
-<?php include "layout/nav.php" ;
- include "layout/header.php"; ?>
+<?php
+ include "layout/nav.php" ;
+ include "layout/header.php"; 
+?>
 
-<form action="operation.php" method="post">
+<?php
+    echo $error;
+    echo $success;
+?>  
+<form action="" method="post">
     <div class="mb-3">
-        <label for="amount" class="form-label">Montant</label>
+        <label for="amount" class="form-label">Montant (précisez avec + ou -)</label>
         <input type="number" class="form-control" name="amount">
     </div>    
     <div class="mb-3">
@@ -12,9 +18,4 @@
     </div>
     <button type="submit" class="btn btn-dark text-white">Valider</button>
 </form>
-<?php if (!empty($_POST["amount"]) === 0): ?>
-    <div class="alert alert-secondary text-center" role="alert">
-        <?php echo $error; ?>
-    </div>
-<?php endif ?>
 <?php include "layout/footer.php"; ?>
