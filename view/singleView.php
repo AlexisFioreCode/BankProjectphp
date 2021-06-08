@@ -9,9 +9,10 @@
                     <?php foreach($account as $key=>$value): ?>                      
                         <li class="list-group-item"><?php echo "$key : $value"; ?></li>
                     <?php endforeach ?>
-                </ul>
-                <a class="btn btn-dark text-white px-5" href="operation.php?index=<?php echo $account["id"];?>">Dépot ou Retrait </a>
+                </ul>              
             </div> 
+<a class="btn btn-dark text-white px-5" href="operation.php?index=<?php echo $account["id"];?>">Dépot ou Retrait </a>
+<a class="btn btn-dark text-white px-5" href="delete.php?index=<?php echo $account["id"];?>">Supprimer le compte </a>            
 <?php else : ?>
     <div class="alert alert-secondary text-center" role="alert">
         <?php echo $error; ?>

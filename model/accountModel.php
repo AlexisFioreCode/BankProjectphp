@@ -29,12 +29,19 @@ function addAccount(PDO $db) {
 }
 
 function updateAccount(PDO $db, int $amount , int $accountId) {
-    $query = $db->prepare(" UPDATE accounts SET amount = :amount WHERE id = :accountId ");
+    $query = $db->prepare(" UPDATE accounts SET amount = :amount WHERE account_id = :accountId ");
     $result = $query->execute([
         "amount"=> $amount,
         "accountId"=> $accountId
     ]);
     return $result;
+}
+
+function deleteAccount(PDO $db) {
+    $query = $db->prepare(" DELETE FROM  accounts WHERE id = :account_id ");
+    $query->execute([
+        "accountId" => $_GET["index"]
+    ]);
 }
 
 ?>
