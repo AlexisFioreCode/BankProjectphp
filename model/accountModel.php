@@ -38,7 +38,7 @@ function updateAccount(PDO $db, int $amount , int $accountId) {
 }
 
 function deleteAccount(PDO $db) {
-    $query = $db->prepare(" DELETE FROM  accounts WHERE id = :account_id ");
+    $query = $db->prepare(" DELETE FROM accounts WHERE id = :account_id ");
     $query->execute([
         "accountId" => $_GET["index"]
     ]);
