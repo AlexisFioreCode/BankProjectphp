@@ -1,9 +1,9 @@
 <?php 
 
-require "model/connexion.php";
-require "model/accountModel.php";
+require "model/accountManager.php";
 
-deleteAccount($db);
+$account = new AccountManager();
+$account->deleteAccount($_GET["index"]);
 header("Location:index.php");
 exit
 ?>
