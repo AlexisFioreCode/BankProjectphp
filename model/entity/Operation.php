@@ -8,6 +8,17 @@ class Operation {
     protected string $label;
     protected int $account_id;
 
+    public function __construct(?array $data=null) {
+        if($data) {
+            foreach($data as $key => $value) {
+                $setter = "set" . ucfirst($key);
+                if(method_exists($this, $setter)) {
+                    $this->$setter($value);
+                }
+            }
+        }
+    }
+
 
     public function setId(int $id) {
         $this->id = $id;
@@ -17,20 +28,20 @@ class Operation {
         return $this->id;
     }
 
-    public function setOperationType(string $operation_type) {
+    public function setOperation_type(string $operation_type) {
         $this->operation_type = $operation_type;
     }
 
-    public function getOperationType(){
+    public function getOperation_type(){
         return $this->operation_type;
     }
 
     public function setAmount(int $amount) {
-        $this->id = $amount;
+        $this->amount = $amount;
     }
 
     public function getAmount(){
-        return $this->id;
+        return $this->amount;
     }
 
     public function setRegistered(string $registered) {
@@ -49,11 +60,11 @@ class Operation {
         return $this->label;
     }
 
-    public function setAccountId(int $account_id) {
+    public function setAccount_id(int $account_id) {
         $this->account_id = $account_id;
     }
 
-    public function getAccountId(){
+    public function getAccount_id(){
         return $this->account_id;
     }
 

@@ -1,8 +1,6 @@
 <?php
-
-require "model/connexion.php";
-require "model/operationModel.php";
-require "model/accountModel.php";
+require "model/operationManager.php";
+require "model/accountManager.php";
 
 $error = null;
 $success = null;

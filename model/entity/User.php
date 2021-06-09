@@ -10,6 +10,16 @@ class User {
     protected string $city; 
     protected int $postal_code;
 
+    public function __construct(?array $data=null) {
+        if($data) {
+            foreach($data as $key => $value) {
+                $setter = "set" . ucfirst($key);
+                if(method_exists($this, $setter)) {
+                    $this->$setter($value);
+                }
+            }
+        }
+    }
 
     public function setId(int $id) {
         $this->id = $id;
