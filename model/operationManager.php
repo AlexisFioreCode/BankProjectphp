@@ -17,7 +17,27 @@ class OperationManager {
         $result[$key] = new Operation($operation);
         } 
         return $result;
-    }       
+    }
+    
+    public function addDepot() {
+        $query = $this->db->prepare("INSERT INTO operation(operation_type, amount, registered, label, account_id) VALUES('dépot', :amount, NOW(), :label, :account_id)");
+        $result = $query->execute([
+        "amount" => $_POST["amount"],
+        "label" => $_POST["label"],
+        "account_id" => $_GET["index"]
+        ]);
+        return $result;
+    }
+    
+    function addRetrait() {
+        $query = $this->db->prepare("INSERT INTO operation(operation_type, amount, registered, label, account_id) VALUES('retrait', :amount, NOW(), :label, :account_id)");
+        $result = $query->execute([
+        "amount" => $_POST["amount"],
+        "label" => $_POST["label"],
+        "account_id" => $_GET["index"]
+        ]);
+        return $result;  
+    }
 }       
 
         // PHP Procédural

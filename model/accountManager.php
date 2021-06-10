@@ -19,7 +19,7 @@ class AccountManager {
         return $result;
     }
 
-    public function getOneAccount(int $accountId) {
+        public function getOneAccount(int $accountId) {
         $query = $this->db->prepare("SELECT * FROM accounts WHERE id =:accountId  ");
         $query->execute([
             "accountId" => $accountId
@@ -29,7 +29,7 @@ class AccountManager {
         return $result;
     }
 
-    function addAccount(Account $account) {
+        public function addAccount(Account $account) {
         $query = $this->db->prepare("INSERT INTO Accounts(account_type, account_number, amount, opening_date, user_id) VALUES(:account_type, UUID_SHORT(), :amount, NOW(), :user_id)");
         $result = $query->execute([
            'account_type' => $account->getAccount_type(),
@@ -39,8 +39,8 @@ class AccountManager {
         return $result;     
     }
 
-    function updateAccount(int $amount , int $accountId) {
-        $query = $this->db->prepare(" UPDATE accounts SET amount = :amount WHERE account_id = :accountId ");
+        public function updateAccount(int $amount , int $accountId) {
+        $query = $this->db->prepare("UPDATE accounts SET amount = :amount WHERE id = :accountId ");
         $result = $query->execute([
             "amount"=> $amount,
             "accountId"=> $accountId
@@ -48,7 +48,7 @@ class AccountManager {
         return $result;
     } 
 
-    function deleteAccount(int $accountId) {
+        public function deleteAccount(int $accountId) {
         $query = $this->db->prepare("DELETE FROM accounts WHERE id = :account_id ");
         $result = $query->execute([
             "account_id" => $accountId
