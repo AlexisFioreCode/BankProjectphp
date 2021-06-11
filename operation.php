@@ -12,7 +12,7 @@ $account = $accountModel->getOneAccount($_GET["index"]);
 $amount = $account->getAmount(); 
 $operationModel = new OperationManager();
 $operation = new Operation($_POST);
-var_dump($operation);
+// var_dump($operation);
 
  if (!empty($operation)) {
      // Demander a Thomas pk ça marche pas si je met $operation->getAmount()
