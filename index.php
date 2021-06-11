@@ -1,12 +1,22 @@
 <?php
+    require "model/entity/Account.php"; 
+    require "model/entity/User.php";
+    require "model/accountManager.php";
+
     session_start();
     if(!isset($_SESSION["user"])) {
         header("Location:login.php");
         exit;
     }
-    require "model/connexion.php";
-    require "model/accountModel.php";
-    $accounts = getUserAccount($db, $_SESSION["user"]["id"]);
+
+    $accountModel = new AccountManager();
+    // $accounts = new Account();
+    $user = $_SESSION["user"];
+    $accounts = $accountModel->getUserAccount($user->getId());
+    
+    // var_dump($accounts);
+
+    /* $accounts = getUserAccount($db, $_SESSION["user"]["id"]); */
 
 
 
