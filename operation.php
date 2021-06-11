@@ -11,19 +11,22 @@ $account = new Account();
 $account = $accountModel->getOneAccount($_GET["index"]);
 $amount = $account->getAmount(); 
 $operationModel = new OperationManager();
+$operation = new Operation($_POST);
+var_dump($operation);
 
- if (!empty($_POST)) {
+ if (!empty($operation)) {
+     // Demander a Thomas pk ça marche pas si je met $operation->getAmount()
     if(!empty($_POST["amount"]) > 0 ){
-        $operationModel->addDepot();
-        $total = $amount + $_POST["amount"];
+        $operationModel->addDepot($operation);
+        $total = $amount + $operation->getAmount();
         $result = $accountModel->updateAccount($total, $_GET["index"]);
         if($result) {
         $success = "<div class='alert alert-secondary text-center' role='alert'><h2>Opération réussite</h2></div>";           
         } 
     }                
     else if(!empty($_POST["amount"]) < 0 ) {
-        $operationModel->addRetrait();
-        $total = $amount + $_POST["amount"];
+        $operationModel->addRetrait($operation);
+        $total = $amount + $operation->getAmount();
         $result = $accountModel->updateAccount($total, $_GET["index"]);
         if($result) {
             $success = "<div class='alert alert-secondary text-center' role='alert'><h2>Opération réussite</h2></div>";

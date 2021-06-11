@@ -19,21 +19,21 @@ class OperationManager {
         return $result;
     }
     
-    public function addDepot() {
+    public function addDepot(Operation $operation) {
         $query = $this->db->prepare("INSERT INTO operation(operation_type, amount, registered, label, account_id) VALUES('dépot', :amount, NOW(), :label, :account_id)");
         $result = $query->execute([
-        "amount" => $_POST["amount"],
-        "label" => $_POST["label"],
+        "amount" => $operation->getAmount(),
+        "label" => $operation->getLabel(),
         "account_id" => $_GET["index"]
         ]);
         return $result;
     }
     
-    function addRetrait() {
+    function addRetrait(Operation $operation) {
         $query = $this->db->prepare("INSERT INTO operation(operation_type, amount, registered, label, account_id) VALUES('retrait', :amount, NOW(), :label, :account_id)");
         $result = $query->execute([
-        "amount" => $_POST["amount"],
-        "label" => $_POST["label"],
+        "amount" => $operation->getAmount(),
+        "label" => $operation->getLabel(),
         "account_id" => $_GET["index"]
         ]);
         return $result;  

@@ -9,7 +9,7 @@
 ?>  
 <form action="" method="post">
     <div class="mb-3">
-        <label for="amount" class="form-label">Montant (précisez avec + ou -)</label>
+        <label for="amount" class="form-label">Montant (précisez avec +(dépot) ou - (retrait))</label>
         <input type="number" class="form-control" name="amount">
     </div>    
     <div class="mb-3">
